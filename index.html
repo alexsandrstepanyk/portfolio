@@ -364,23 +364,134 @@ footer{padding:32px 56px;border-top:1px solid var(--border);display:flex;justify
 .fade-up{opacity:0;transform:translateY(32px);transition:opacity .8s ease,transform .8s ease;}
 .fade-up.visible{opacity:1;transform:translateY(0);}
 
-/* RESPONSIVE */
+/* RESPONSIVE — TABLET */
 @media(max-width:900px){
-  .lang-bar{padding:6px 24px;}
-  nav{padding:18px 24px;top:32px;}
+  .lang-bar{padding:6px 20px;}
+  nav{padding:16px 20px;top:32px;}
   .nav-links{display:none;}
-  section{padding:80px 24px;}
-  .hero{padding:96px 24px 60px;}
-  .hero-bottom{grid-template-columns:1fr;gap:32px;}
+  .nav-cta{font-size:9px;padding:8px 16px;}
+  section{padding:80px 32px;}
+  .hero{padding:100px 32px 60px;}
+  .hero-bottom{grid-template-columns:1fr;gap:28px;}
+  .hero-stats{grid-template-columns:repeat(3,1fr);}
   .about-layout{grid-template-columns:1fr;gap:40px;}
+  .exp-layout{grid-template-columns:1fr;gap:48px;}
   .skill-grid{grid-template-columns:repeat(3,1fr);}
   .metrics-grid{grid-template-columns:repeat(2,1fr);}
-  .contact-grid{grid-template-columns:1fr;gap:48px;}
+  .contact-grid{grid-template-columns:1fr;gap:40px;}
   .proj{grid-template-columns:40px 1fr;}
   .proj-arrow{display:none;}
   .statement{flex-direction:column;gap:20px;}
   .statement-attr{writing-mode:horizontal-tb;border-left:none;border-top:1px solid var(--border);padding-left:0;padding-top:20px;}
   footer{flex-direction:column;gap:16px;text-align:center;}
+  .scroll-hint{display:none;}
+}
+
+/* RESPONSIVE — MOBILE */
+@media(max-width:600px){
+  /* LANG BAR */
+  .lang-bar{padding:5px 12px;gap:4px;flex-wrap:wrap;justify-content:center;top:0;}
+  .lang-btn{padding:4px 8px;font-size:8px;gap:3px;}
+  .lang-flag{font-size:10px;}
+  .lang-detect-msg{display:none;}
+
+  /* NAV */
+  nav{padding:12px 16px;top:28px;}
+  .nav-logo{font-size:9px;letter-spacing:2px;}
+  .nav-links{display:none;}
+  .nav-cta{font-size:8px;padding:7px 12px;letter-spacing:1px;}
+
+  /* HERO */
+  .hero{padding:90px 16px 48px;min-height:auto;}
+  .hero-tag{font-size:7px;letter-spacing:1px;padding:6px 10px;margin-bottom:20px;white-space:normal;line-height:1.6;}
+  .hero-name{font-size:clamp(38px,11vw,64px);letter-spacing:-2px;line-height:.9;}
+  .hero-bottom{grid-template-columns:1fr;gap:24px;margin-top:32px;padding-top:24px;}
+  .hero-desc{font-size:12px;line-height:1.8;max-width:100%;}
+  .hero-stats{grid-template-columns:repeat(3,1fr);}
+  .stat{padding:14px 8px;}
+  .stat-num{font-size:18px;}
+  .stat-label{font-size:7px;letter-spacing:1px;}
+  .scroll-hint{display:none;}
+
+  /* TICKER */
+  .ticker-inner span{font-size:8px;letter-spacing:1px;padding:0 16px;}
+
+  /* SECTIONS */
+  section{padding:56px 16px;}
+  .section-header{gap:12px;margin-bottom:40px;}
+  .section-title{font-size:clamp(24px,7vw,40px);}
+  .section-id{font-size:8px;padding:3px 8px;}
+  .section-line{max-width:60px;}
+
+  /* ABOUT — TERMINAL */
+  .about-layout{grid-template-columns:1fr;gap:28px;}
+  .about-terminal{overflow-x:auto;}
+  .terminal-body{padding:16px;font-size:10px;}
+  .terminal-title{font-size:7px;letter-spacing:1px;}
+  .t-out{padding-left:12px;font-size:10px;}
+
+  /* BIO */
+  .bio-block{padding:20px 16px;}
+  .bio-block::before{font-size:80px;}
+  .bio-text{font-size:11px;line-height:1.8;}
+  .strengths{gap:6px;}
+  .strength-pill{font-size:8px;padding:5px 10px;}
+
+  /* EXP LAYOUT */
+  .exp-layout{grid-template-columns:1fr;gap:36px;}
+  .exp-col-title{font-size:8px;letter-spacing:2px;}
+  .tl-role{font-size:13px;}
+  .tl-desc{font-size:10px;}
+  .tl-tags{gap:4px;}
+  .tl-tag{font-size:7px;padding:2px 6px;}
+
+  /* SKILL GRID */
+  .skill-grid{grid-template-columns:repeat(2,1fr);}
+  .skill-cell{font-size:8px;padding:10px 6px;letter-spacing:1px;}
+
+  /* PROJECTS */
+  .proj{grid-template-columns:32px 1fr;padding:0;}
+  .proj-num{font-size:8px;padding:20px 0;}
+  .proj-body{padding:16px 14px;gap:10px;}
+  .proj-name{font-size:clamp(16px,4vw,22px);}
+  .proj-desc{font-size:10px;line-height:1.7;max-width:100%;}
+  .proj-tags{gap:4px;}
+  .proj-tag{font-size:7px;padding:3px 7px;letter-spacing:1px;}
+  .proj-arrow{display:none;}
+
+  /* METRICS */
+  .metrics-grid{grid-template-columns:repeat(2,1fr);}
+  .metric-card{padding:24px 16px;}
+  .metric-val{font-size:28px;}
+  .metric-label{font-size:8px;}
+  .metric-sub{font-size:8px;}
+  .statement{padding:28px 20px;}
+  .statement-quote{font-size:13px;}
+  .statement-attr{font-size:8px;}
+
+  /* CONTACT */
+  .contact-grid{grid-template-columns:1fr;gap:32px;}
+  .contact-big{font-size:clamp(32px,9vw,52px);line-height:.9;}
+  .c-link{padding:14px 16px;font-size:9px;}
+  .f-input{padding:12px 14px;font-size:11px;}
+  .f-btn{padding:14px 20px;font-size:10px;}
+
+  /* FOOTER */
+  footer{flex-direction:column;gap:12px;text-align:center;padding:32px 16px;}
+  .f-logo{font-size:9px;letter-spacing:2px;}
+  .f-links{flex-wrap:wrap;justify-content:center;gap:12px;}
+  .f-links a{font-size:8px;}
+  .f-copy{font-size:8px;}
+}
+
+/* VERY SMALL — 360px */
+@media(max-width:380px){
+  .hero-name{font-size:34px;}
+  .hero-tag{font-size:6px;}
+  .stat-num{font-size:16px;}
+  .skill-grid{grid-template-columns:repeat(2,1fr);}
+  .metrics-grid{grid-template-columns:1fr 1fr;}
+  .lang-btn{padding:3px 6px;font-size:7px;}
 }
 </style>
 </head>
@@ -977,8 +1088,8 @@ footer{padding:32px 56px;border-top:1px solid var(--border);display:flex;justify
     <div class="fade-up">
       <div class="contact-big"><span data-i18n="contact_line1">LET'S</span><br><span>BUILD</span><br><span data-i18n="contact_line2">TOGETHER</span></div>
       <div class="contact-links">
-        <a class="c-link" href="mailto:stepanyk2022@gmail.com">
-          <span>✉ stepanyk2022@gmail.com</span><span class="c-link-arr">↗</span>
+        <a class="c-link" href="/cdn-cgi/l/email-protection#394a4d5c49585740520b090b0b795e54585055175a5654">
+          <span>✉ <span class="__cf_email__" data-cfemail="e291968792838c9b89d0d2d0d0a2858f838b8ecc818d8f">[email&#160;protected]</span></span><span class="c-link-arr">↗</span>
         </a>
         <a class="c-link" href="https://t.me/stepashka_sl" target="_blank">
           <span>✈ Telegram · @stepashka_sl</span><span class="c-link-arr">↗</span>
@@ -1020,7 +1131,7 @@ footer{padding:32px 56px;border-top:1px solid var(--border);display:flex;justify
 <footer>
   <div class="f-logo">O_STEPANIUK · SYS_ARCH · 2026</div>
   <div class="f-links">
-    <a href="mailto:stepanyk2022@gmail.com">Email</a>
+    <a href="/cdn-cgi/l/email-protection#2350574653424d5a481113111163444e424a4f0d404c4e">Email</a>
     <a href="https://t.me/stepashka_sl" target="_blank">Telegram</a>
     <a href="https://www.linkedin.com/in/oleksandr-stepaniuk-8b86523ab/" target="_blank">LinkedIn</a>
     <a href="https://www.facebook.com/sasha.stepanyk.7/" target="_blank">Facebook</a>
@@ -1033,7 +1144,7 @@ footer{padding:32px 56px;border-top:1px solid var(--border);display:flex;justify
 <div style="display:none" aria-hidden="true">
   Oleksandr Stepaniuk — Full-Stack Developer and System Architect in Würzburg, Germany.
   React Native TypeScript Python AI Developer CivicTech GenTrust Mobility Automobility Gov.de Bot.
-  Contact: stepanyk2022@gmail.com · stepaniuk.shop
+  Contact: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="c1b2b5a4b1a0afb8aaf3f1f3f381a6aca0a8adefa2aeac">[email&#160;protected]</a> · stepaniuk.shop
 </div>
 
 <script>
@@ -1462,7 +1573,7 @@ function animateCounters(){
     (function step(now){
       const prog=Math.min((now-t0)/dur,1);
       const ease=1-Math.pow(1-prog,3);
-      const val=num<=10?Math.round(ease*num*10)/10:Math.round(ease*num);
+          const val=num<=10?Math.round(ease*num*10)/10:Math.round(ease*num);
       el.textContent=pre+(num>=1000?val.toLocaleString():val)+suf;
       if(prog<1) requestAnimationFrame(step);
     })(t0);
