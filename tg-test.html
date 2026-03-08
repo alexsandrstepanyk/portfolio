@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8">
+<title>TG Test</title>
+<style>
+  body{background:#020408;color:#e8f4ff;font-family:monospace;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;gap:16px;}
+  button{background:#00d4ff;color:#020408;border:none;padding:14px 32px;font-family:monospace;font-size:13px;font-weight:700;letter-spacing:2px;cursor:pointer;}
+  #log{font-size:11px;color:#4a6a80;max-width:500px;text-align:center;white-space:pre-wrap;}
+  .ok{color:#27c93f!important;} .err{color:#ff6b2b!important;}
+</style>
+</head>
+<body>
+<h2 style="color:#00d4ff;letter-spacing:4px">TELEGRAM BOT TEST</h2>
+
+<button onclick="testVisitor()">👁 Тест: Новий відвідувач</button>
+<button onclick="testClick()">🔔 Тест: Натиснуто Init Contact</button>
+<button onclick="testForm()">📬 Тест: Нова заявка з форми</button>
+
+<div id="log">Натисни будь-яку кнопку...</div>
+
+<script>
+const TOKEN = '8763452924:AAFZ0E8j1sSbwdURhBAkPKyHg98dC8h3hHM';
+const CHAT  = '312248641';
+const API   = `https://api.telegram.org/bot${TOKEN}/sendMessage`;
+const log   = document.getElementById('log');
+
+async function send(text) {
+  log.className = ''; log.textContent = '⏳ Відправляю...';
+  try {
+    const r = await fetch(API, {
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({ chat_id: CHAT, text, parse_mode:'HTML' })
+    });
+    const d = await r.json();
+    if(d.ok) {
+      log.className = 'ok';
+      log.textContent = '✓ УСПІШНО! Перевір Telegram @stepashka_sl';
+    } else {
+      log.className = 'err';
+      log.textContent = '✗ Помилка: ' + JSON.stringify(d);
+    }
+  } catch(e) {
+    log.className = 'err';
+    log.textContent = '✗ Fetch error: ' + e.message;
+  }
+}
+
+function testVisitor() {
+  send(`👁 <b>НОВИЙ ВІДВІДУВАЧ</b>
+━━━━━━━━━━━━━━━━━━━━
+🌐 <b>Мова:</b> UK
+⏱ <b>Час:</b> ${new Date().toLocaleString('uk-UA')}
+📎 <b>Джерело:</b> direct (тест)
+🖥 <b>UA:</b> ${navigator.userAgent.slice(0,80)}`);
+}
+
+function testClick() {
+  send(`🔔 Натиснуто кнопку <b>Init Contact</b> в навігації
+
+🌐 <b>Мова:</b> UK
+⏱ <b>Час:</b> ${new Date().toLocaleString('uk-UA')}
+📎 <b>Джерело:</b> direct (тест)`);
+}
+
+function testForm() {
+  send(`📬 <b>НОВА ЗАЯВКА З САЙТУ</b>
+━━━━━━━━━━━━━━━━━━━━
+
+👤 <b>Ім'я:</b> Тестовий Користувач
+📧 <b>Email:</b> test@example.com
+💬 <b>Повідомлення:</b>
+Це тестове повідомлення з форми зворотного зв'язку. Все працює! 🚀
+
+━━━━━━━━━━━━━━━━━━━━
+🌐 <b>Мова сайту:</b> UK
+⏱ <b>Час:</b> ${new Date().toLocaleString('uk-UA')}
+📎 <b>Джерело:</b> direct (тест)
+🖥 <b>UA:</b> ${navigator.userAgent.slice(0,80)}`);
+}
+</script>
+</body></html>

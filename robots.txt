@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://stepaniuk.shop/sitemap.xml
+
+# Block test files
+Disallow: /tg-test.html
